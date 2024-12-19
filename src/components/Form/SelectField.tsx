@@ -1,4 +1,5 @@
 import React from "react";
+import { IOption } from "../../Interfaces/formSchema";
 
 const SelectField = ({ field, register, errors }) => {
   return (
@@ -12,7 +13,7 @@ const SelectField = ({ field, register, errors }) => {
         })}
       >
         <option value="">Select</option>
-        {field?.options?.map((option) => (
+        {field?.options?.map((option: IOption) => (
           <option key={option.value} value={option.value}>
             {option.label}
           </option>

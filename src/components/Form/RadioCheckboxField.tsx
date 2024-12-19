@@ -1,18 +1,19 @@
 import React from "react";
+import { IOption } from "../../Interfaces/formSchema";
 
 const RadioCheckboxField = ({ field, errors, register }) => {
   return (
     <div className="field-container" key={field.id}>
       <label className="field-label">{field.label}</label>
-      {field.options.map((option, i) => (
-        <label key={i} className="radio-checkbox-label">
+      {field.options.map((option: IOption) => (
+        <label key={option.value} className="radio-checkbox-label">
           <input
             type={field.type}
             value={option.value}
             {...register(field.id, {
               required: field.required
                 ? `${field.id} is required field`
-                : field.required,
+                : false,
             })}
           />
           {option.label}

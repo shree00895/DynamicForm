@@ -14,7 +14,6 @@ interface IAction {
 const reducer = (state = initialState, action: IAction) => {
   switch (action.type) {
     case "save":
-      console.log("data ", action.payload);
       return { ...state, ...action.payload };
     default:
       return state;

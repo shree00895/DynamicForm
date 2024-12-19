@@ -9,7 +9,7 @@ const OtherFields = ({ field, register, errors }) => {
         type={field.type}
         placeholder={field?.placeholder}
         {...register(field.id, {
-          required: field.required,
+          required: field.required ? `${field.label} is required` : false,
           ...field?.validation,
         })}
       />
