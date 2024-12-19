@@ -1,0 +1,101 @@
+{
+  "formTitle": "User Registration Form",
+  "formDescription": "Please fill out the form to register",
+  "fields": [
+    {
+      "id": "username",
+      "type": "text",
+      "label": "Username",
+      "required": true,
+      "placeholder": "Enter your username",
+      "validation": {
+        "minLength": {
+          "value": 3,
+          "message": "username must be at least 3 characters"
+        },
+        "maxLength": {
+          "value": 20,
+          "message": "username must be at maximum 20 characters"
+        }
+      }
+    },
+    {
+      "id": "email",
+      "type": "email",
+      "label": "Email Address",
+      "required": true,
+      "placeholder": "Enter your email",
+      "validation": {
+        "pattern": {
+          "value": "^[^s@]+@[^s@]+.[^s@]+$",
+          "message": "Please enter a valid email address"
+        }
+      }
+    },
+    {
+      "id": "password",
+      "type": "password",
+      "label": "Password",
+      "required": true,
+      "placeholder": "Enter a secure password",
+      "validation": {
+        "minLength": {
+          "value": 8,
+          "message": "Password must be at least 8 characters"
+        }
+      }
+    },
+    {
+      "id": "dob",
+      "type": "date",
+      "label": "Date of Birth",
+      "required": true
+    },
+    {
+      "id": "gender",
+      "type": "radio",
+      "label": "Gender",
+      "required": true,
+      "options": [
+        { "value": "male", "label": "Male" },
+        { "value": "female", "label": "Female" },
+        { "value": "other", "label": "Other" }
+      ]
+    },
+    {
+      "id": "hobbies",
+      "type": "checkbox",
+      "label": "Hobbies",
+      "required": true,
+      "options": [
+        { "value": "reading", "label": "Reading" },
+        { "value": "travelling", "label": "Travelling" },
+        { "value": "sports", "label": "Sports" }
+      ]
+    },
+    {
+      "id": "bio",
+      "type": "textarea",
+      "label": "Short Bio",
+      "required": true,
+      "placeholder": "Tell us about yourself"
+    },
+    {
+      "id": "language",
+      "type": "select",
+      "label": "Language",
+      "required": true,
+      "options": [
+        { "value": "marathi", "label": "Marathi" },
+        { "value": "hindi", "label": "Hindi" },
+        { "value": "english", "label": "English" }
+      ]
+    },
+    {
+      "id": "profilePicture",
+      "type": "file",
+      "label": "Upload Profile Picture",
+      "required": true
+    }
+  ]
+}
