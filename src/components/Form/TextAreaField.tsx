@@ -1,4 +1,5 @@
 import React from "react";
+import { parseValidationRules } from "../../utils/format.ts";
 
 const TextAreaField = ({ field, register, errors }) => {
   return (
@@ -10,7 +11,7 @@ const TextAreaField = ({ field, register, errors }) => {
         rows={4}
         {...register(field.id, {
           required: field.required ? `${field.id} is required field` : false,
-          ...field?.validation,
+          ...parseValidationRules(field?.validation),
         })}
       ></textarea>
       <div className="error-wrapper">

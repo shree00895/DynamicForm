@@ -9,7 +9,6 @@ const SelectField = ({ field, register, errors }) => {
         className={`select-field ${errors[field.id] ? "input-error" : ""}`}
         {...register(field.id, {
           required: field.required ? `Please select an option` : false,
-          ...field?.validation,
         })}
       >
         <option value="">Select</option>

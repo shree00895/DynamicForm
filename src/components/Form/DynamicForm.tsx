@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { useForm, SubmitHandler } from "react-hook-form";
-import { useTheme } from "@mui/material";
+import { useTheme, TextField } from "@mui/material";
 import RadioCheckboxField from "./RadioCheckboxField.tsx";
 import SelectField from "./SelectField.tsx";
 import TextAreaField from "./TextAreaField.tsx";
@@ -21,7 +21,9 @@ const DynamicForm = () => {
     handleSubmit,
     reset,
     formState: { errors, isSubmitting },
-  } = useForm<IFormSchema>();
+  } = useForm<IFormSchema>({
+    mode: "onChange",
+  });
 
   const onSubmit: SubmitHandler<IFormSchema> = async (data) => {
     setFormData(data);

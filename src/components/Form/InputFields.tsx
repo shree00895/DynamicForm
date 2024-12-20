@@ -1,4 +1,5 @@
 import React from "react";
+import { parseValidationRules } from "../../utils/format.ts";
 
 const InputFields = ({ field, register, errors }) => {
   return (
@@ -10,7 +11,7 @@ const InputFields = ({ field, register, errors }) => {
         placeholder={field?.placeholder}
         {...register(field.id, {
           required: field.required ? `${field.label} is required` : false,
-          ...field?.validation,
+          ...parseValidationRules(field?.validation),
         })}
       />
       <div className="error-wrapper">
