@@ -5,22 +5,23 @@ import { useTheme } from "@mui/material";
 import RadioCheckboxField from "./RadioCheckboxField.tsx";
 import SelectField from "./SelectField.tsx";
 import TextAreaField from "./TextAreaField.tsx";
-import OtherFields from "./OtherFields.tsx";
+import InputFields from "./InputFields.tsx";
 import { IField, IFormSchema } from "../../Interfaces/formSchema";
 
 import "./styles.scss";
 
 const DynamicForm = () => {
+  const [formData, setFormData] = useState<IFormSchema | null>(null);
+  const theme = useTheme();
+  const formFieldsTemp = useSelector((state) => state);
+  const formFields: IFormSchema = formFieldsTemp as IFormSchema;
+
   const {
     register,
     handleSubmit,
     reset,
     formState: { errors, isSubmitting },
   } = useForm<IFormSchema>();
-  const [formData, setFormData] = useState<IFormSchema | null>(null);
-  const theme = useTheme();
-  const formFieldsTemp = useSelector((state) => state);
-  const formFields: IFormSchema = formFieldsTemp as IFormSchema;
 
   const onSubmit: SubmitHandler<IFormSchema> = async (data) => {
     setFormData(data);
@@ -74,7 +75,7 @@ const DynamicForm = () => {
 
               // To modularize the code created separate component to get the all inputs which are not mentioned above
               return (
-                <OtherFields
+                <InputFields
                   field={field}
                   register={register}
                   errors={errors}

@@ -13,9 +13,11 @@ const TextAreaField = ({ field, register, errors }) => {
           ...field?.validation,
         })}
       ></textarea>
-      {errors[field.id] && (
-        <span className="error">{errors[field.id].message}</span>
-      )}
+      <div className="error-wrapper">
+        {errors[field.id] && (
+          <span className="error">{errors[field.id].message}</span>
+        )}
+      </div>
     </div>
   );
 };

@@ -1,6 +1,6 @@
 import React from "react";
 
-const OtherFields = ({ field, register, errors }) => {
+const InputFields = ({ field, register, errors }) => {
   return (
     <div className="field-container" key={field.id}>
       <label className="field-label">{field.label}</label>
@@ -13,11 +13,13 @@ const OtherFields = ({ field, register, errors }) => {
           ...field?.validation,
         })}
       />
-      {errors[field.id] && (
-        <span className="error">{errors[field.id].message}</span>
-      )}
+      <div className="error-wrapper">
+        {errors[field.id] && (
+          <span className="error">{errors[field.id].message}</span>
+        )}
+      </div>
     </div>
   );
 };
 
-export default OtherFields;
+export default InputFields;

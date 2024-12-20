@@ -19,9 +19,11 @@ const RadioCheckboxField = ({ field, errors, register }) => {
           {option.label}
         </label>
       ))}
-      {errors[field.id] && (
-        <span className="error">{errors[field.id].message}</span>
-      )}
+      <div className="error-wrapper">
+        {errors[field.id] && (
+          <span className="error">{errors[field.id].message}</span>
+        )}
+      </div>
     </div>
   );
 };

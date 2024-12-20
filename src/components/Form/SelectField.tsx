@@ -19,9 +19,11 @@ const SelectField = ({ field, register, errors }) => {
           </option>
         ))}
       </select>
-      {errors[field.id] && (
-        <span className="error">{errors[field.id].message}</span>
-      )}
+      <div className="error-wrapper">
+        {errors[field.id] && (
+          <span className="error">{errors[field.id].message}</span>
+        )}
+      </div>
     </div>
   );
 };
