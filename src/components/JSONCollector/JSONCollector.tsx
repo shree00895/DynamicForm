@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, TextField } from "@mui/material";
+import { Button, TextField, FormLabel } from "@mui/material";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
@@ -29,19 +29,25 @@ const JSONCollector = () => {
 
   return (
     <div style={{ marginTop: "20px" }}>
-      <TextField
-        sx={{ height: "50px" }}
-        type="file"
-        name="json-collect"
-        onChange={handleChange}
-      />
-      <Button
-        sx={{ height: "50px", marginLeft: "10px" }}
-        variant="contained"
-        onClick={handleClick}
-      >
-        Generate dynamic form
-      </Button>
+      <FormLabel id="input-field-label">Upload Form Schema</FormLabel>
+
+      <div>
+        <TextField
+          sx={{ height: "50px" }}
+          type="file"
+          name="json-collect"
+          onChange={handleChange}
+        />
+      </div>
+      <div>
+        <Button
+          sx={{ height: "50px", marginTop: "20px" }}
+          variant="contained"
+          onClick={handleClick}
+        >
+          Generate dynamic form
+        </Button>
+      </div>
     </div>
   );
 };

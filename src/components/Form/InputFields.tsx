@@ -8,10 +8,14 @@ const InputFields = ({ field, register, errors }) => {
       key={field.id}
       style={{ marginBottom: "10px" }}
     >
-      <FormLabel id="input-field-label">{field.label}</FormLabel>
+      {["file", "date"].includes(field.type) ? (
+        <FormLabel id="input-field-label">{field.label}</FormLabel>
+      ) : null}
+
       <TextField
         fullWidth
         type={field.type}
+        label={["file", "date"].includes(field.type) ? null : field.label}
         multiline={field.type === "textarea" ? true : false}
         rows={field.type === "textarea" ? 4 : 1}
         variant="outlined"

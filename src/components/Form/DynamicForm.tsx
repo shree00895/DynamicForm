@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { useForm, SubmitHandler } from "react-hook-form";
-import { useTheme, Button } from "@mui/material";
+import { useTheme, Button, Box } from "@mui/material";
 import RadioField from "./RadioField.tsx";
 import SelectField from "./SelectField.tsx";
 import InputFields from "./InputFields.tsx";
@@ -37,7 +37,13 @@ const DynamicForm = () => {
         <div className="form-container">
           <h1>{formFields.formTitle}</h1>
           <h3>{formFields.formDescription}</h3>
-          <form onSubmit={handleSubmit(onSubmit)}>
+          <Box
+            component="form"
+            // sx={{ "& .MuiTextField-root": { m: 1, width: "25ch" } }}
+            noValidate
+            autoComplete="off"
+            onSubmit={handleSubmit(onSubmit)}
+          >
             {formFields.fields.map((field: IField) => {
               // To modularize the code created separate component to get the checkbox or radio button inputs
               if (field.type === "radio") {
@@ -99,7 +105,7 @@ const DynamicForm = () => {
                 Reset
               </Button>
             </div>
-          </form>
+          </Box>
         </div>
       </div>
       {formData ? (

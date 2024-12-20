@@ -14,7 +14,6 @@ const SelectField = ({ field, register, errors }) => {
         value={selectedOption}
         fullWidth
         name={field.id}
-        label={field.label}
         error={errors[field.id]}
         {...register(field.id, {
           required: field.required ? `Please select an option` : false,

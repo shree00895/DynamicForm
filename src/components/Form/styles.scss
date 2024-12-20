@@ -8,15 +8,6 @@
         margin: 0 !important;
         color: hsl(210, 100%, 60%);
     }
-
-    .input-field-style {
-        width: 100%;
-        margin-top: 5px;
-        padding: 5px 10px;
-        border-radius: var(--border-radius);
-        box-sizing: border-box;
-        cursor: pointer;
-    }
     
     .dn-form {
         width: 50%;
@@ -33,7 +24,7 @@
     
         .field-container {
             text-align: left;
-            margin: 10px 30px;
+            margin: 20px;
             
             .field-label {
                 font-weight: 600;
@@ -44,8 +35,6 @@
             }
             
             input {
-                @extend .input-field-style;
-                height: var(--input-field-height);
     
                 &[type="radio"],&[type="checkbox"]  {
                     display: inline;
@@ -63,15 +52,7 @@
                 display: inline;
                 margin-right: 15px;
             }
-    
-            .select-field {
-                @extend .input-field-style;
-                height: var(--input-field-height);
-            }
 
-            textarea {
-                @extend .input-field-style;
-            }
     
             .input-error {
                 border: 1px solid red;
