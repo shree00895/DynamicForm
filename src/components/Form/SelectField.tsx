@@ -1,24 +1,33 @@
-import React from "react";
+import React, { useState } from "react";
+import { Select, MenuItem, FormLabel } from "@mui/material";
 import { IOption } from "../../Interfaces/formSchema";
 
 const SelectField = ({ field, register, errors }) => {
+  const [selectedOption, setSelectedOption] = useState("");
+
   return (
     <div className="field-container" key={field.id}>
-      <label className="field-label">{field.label}</label>
-      <select
-        className={`select-field ${errors[field.id] ? "input-error" : ""}`}
+      <FormLabel id="select-field-label">{field.label}</FormLabel>
+      <Select
+        labelId="select-field-label"
+        id="select"
+        value={selectedOption}
+        fullWidth
+        name={field.id}
+        label={field.label}
+        error={errors[field.id]}
         {...register(field.id, {
           required: field.required ? `Please select an option` : false,
           ...field?.validation,
         })}
+        onChange={(e) => setSelectedOption(e.target.value as string)}
       >
-        <option value="">Select</option>
-        {field?.options?.map((option: IOption) => (
-          <option key={option.value} value={option.value}>
+        {field.options.map((option: IOption) => (
+          <MenuItem key={option.value} value={option.value}>
             {option.label}
-          </option>
+          </MenuItem>
         ))}
-      </select>
+      </Select>
       {errors[field.id] && (
         <span className="error">{errors[field.id].message}</span>
       )}

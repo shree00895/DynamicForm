@@ -1,120 +1,107 @@
+.dynamic-form {
+    display: flex;
 
-body {
     --input-field-height: 35px;
     --border-radius: 8px;
 
     h1, h3 {
         margin: 0 !important;
+        color: hsl(210, 100%, 60%);
     }
 
     .input-field-style {
         width: 100%;
         margin-top: 5px;
         padding: 5px 10px;
-        border: 1px solid #e3e4ee;
         border-radius: var(--border-radius);
         box-sizing: border-box;
-        background-color: white;
         cursor: pointer;
     }
-
-    .dynamic-form {
-        display: flex;
-
-        &.dark {
-            color: black;
-        }
-        
-        .dn-form {
-            width: 50%;
-        }
     
-        .form-container {
-            margin: 1.5rem 0;
-            margin-left: auto;
-            margin-right: auto;
-            border: 1px solid black;
-            border-radius: var(--border-radius);
-            width: 500px;
-            padding: 20px;
-            background-color: #F8F8F8;
-        
-            .field-container {
-                text-align: left;
-                margin: 10px 30px;
-                
-                .field-label {
-                    font-weight: 600;
-                }
-        
-                label, input {
-                    display: block;
-                }
-                
-                input {
-                    @extend .input-field-style;
-                    height: var(--input-field-height);
-        
-                    &[type="radio"],&[type="checkbox"]  {
-                        display: inline;
-                        margin-right: 10px;
-                        width: fit-content;
-                        height: unset;
-                    }
-                }
-        
-                .radio-checkbox-label {
-                    cursor: pointer;
-                }
-        
-                .radio-container {
-                    display: inline;
-                    margin-right: 15px;
-                }
-        
-                .select-field {
-                    @extend .input-field-style;
-                    height: var(--input-field-height);
-                }
+    .dn-form {
+        width: 50%;
+    }
 
-                textarea {
-                    @extend .input-field-style;
-                }
-        
-                .input-error {
-                    border: 1px solid red;
-                }
-        
-                .error {
-                    color: red;
-                }
-            }
-        
-            .btn-container {
-                display: flex;
-                justify-content: space-around;
-                align-items: center;
-            }
-        
-            input[type="submit"], input[type="button"] {
-                padding: 10px;
-                width: 200px;
-                cursor: pointer;
-                border-radius: var(--border-radius);
-                border: 1px solid gray;
-                background-color: #C8C8C8;
-            }
-        }
+    .form-container {
+        margin: 1.5rem 0;
+        margin-left: auto;
+        margin-right: auto;
+        border: 1px solid hsla(210, 100%, 60%, 0.5);
+        border-radius: var(--border-radius);
+        width: 500px;
+        padding: 20px;
     
-        pre {
-            width: 50%;
+        .field-container {
             text-align: left;
-            margin: 1.5rem 0;
+            margin: 10px 30px;
+            
+            .field-label {
+                font-weight: 600;
+            }
     
-            &.dark {
-                color: white;
+            label, input {
+                display: block;
+            }
+            
+            input {
+                @extend .input-field-style;
+                height: var(--input-field-height);
+    
+                &[type="radio"],&[type="checkbox"]  {
+                    display: inline;
+                    margin-right: 10px;
+                    width: fit-content;
+                    height: unset;
+                }
+            }
+    
+            .radio-checkbox-label {
+                cursor: pointer;
+            }
+    
+            .radio-container {
+                display: inline;
+                margin-right: 15px;
+            }
+    
+            .select-field {
+                @extend .input-field-style;
+                height: var(--input-field-height);
+            }
+
+            textarea {
+                @extend .input-field-style;
+            }
+    
+            .input-error {
+                border: 1px solid red;
+            }
+    
+            .error {
+                color: red;
             }
         }
+    
+        .btn-container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+    
+        input[type="submit"], input[type="button"] {
+            padding: 10px;
+            width: 200px;
+            cursor: pointer;
+            border-radius: var(--border-radius);
+            border: 1px solid gray;
+            background-color: #C8C8C8;
+        }
+    }
+
+    pre {
+        width: 50%;
+        text-align: left;
+        margin: 1.5rem 0;
     }
 }
 
