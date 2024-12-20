@@ -34,11 +34,21 @@ const DynamicForm = () => {
 
   const onSubmit: SubmitHandler<IFormSchema> = async (data) => {
     setFormData(data);
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
   };
 
   const handleReset = () => {
     reset();
     setFormData(null);
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
   };
 
   return (
