@@ -14,6 +14,7 @@ const RadioField = ({ field, errors, register }) => {
         {field.options.map((option: IOption) => (
           <FormControlLabel
             name={field.id}
+            sx={{ height: "30px" }}
             control={
               <Radio
                 value={option.value}

@@ -17,6 +17,7 @@ const CheckboxField = ({ field, errors, register }) => {
             key={option.value}
             control={
               <Checkbox
+                sx={{ height: "30px" }}
                 {...register(field.id, {
                   required: field.required
                     ? `${field.id} is required field`
