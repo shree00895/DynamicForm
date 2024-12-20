@@ -28,7 +28,12 @@ const JSONCollector = () => {
 
   return (
     <div>
-      <input type="file" name="json-collect" onChange={handleChange} />
+      <input
+        type="file"
+        accept=".json"
+        name="json-collect"
+        onChange={handleChange}
+      />
       <div>
         <button onClick={handleClick} style={{ marginTop: "20px" }}>
           Generate dynamic form

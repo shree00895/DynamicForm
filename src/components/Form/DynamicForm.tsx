@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { useForm, SubmitHandler } from "react-hook-form";
-import { useTheme, TextField } from "@mui/material";
+import { useTheme } from "@mui/material";
 import RadioCheckboxField from "./RadioCheckboxField.tsx";
 import SelectField from "./SelectField.tsx";
 import TextAreaField from "./TextAreaField.tsx";
@@ -11,10 +12,16 @@ import { IField, IFormSchema } from "../../Interfaces/formSchema";
 import "./styles.scss";
 
 const DynamicForm = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState<IFormSchema | null>(null);
   const theme = useTheme();
-  const formFieldsTemp = useSelector((state) => state);
-  const formFields: IFormSchema = formFieldsTemp as IFormSchema;
+  const formFields = useSelector((state) => state) as IFormSchema;
+
+  useEffect(() => {
+    if (!formFields.formTitle) {
+      navigate("/");
+    }
+  }, [formFields, navigate]);
 
   const {
     register,
