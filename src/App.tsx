@@ -12,8 +12,8 @@ function App() {
   // Added custom theme provider to have the dark and light mode
   return (
     <div className="App">
-      <CustomThemeProvider>
-        <Provider store={store}>
+      <CustomThemeProvider children={undefined}>
+        <Provider store={store} children={undefined}>
           <BrowserRouter>
             <Routes>
               <Route path="/" element={<JSONCollector />} />
