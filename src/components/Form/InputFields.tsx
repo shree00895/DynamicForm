@@ -1,7 +1,7 @@
 import React from "react";
 import { TextField, FormLabel } from "@mui/material";
 
-const InputFields = ({ field, register, errors }) => {
+const InputFields = ({ field, register, errors, control }) => {
   return (
     <div
       className="field-container"

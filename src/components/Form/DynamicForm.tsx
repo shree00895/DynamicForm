@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useTheme, Button, Box } from "@mui/material";
@@ -9,18 +9,26 @@ import CheckboxField from "./CheckboxField.tsx";
 import { IField, IFormSchema } from "../../Interfaces/formSchema";
 
 import "./styles.scss";
+import { useNavigate } from "react-router-dom";
 
 const DynamicForm = () => {
   const {
     register,
     handleSubmit,
     reset,
+    control,
     formState: { errors, isSubmitting },
   } = useForm<IFormSchema>();
   const [formData, setFormData] = useState<IFormSchema | null>(null);
   const theme = useTheme();
-  const formFieldsTemp = useSelector((state) => state);
-  const formFields: IFormSchema = formFieldsTemp as IFormSchema;
+  const formFields = useSelector((state) => state) as IFormSchema;
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!formFields.formTitle) {
+      navigate("/");
+    }
+  }, [formFields]);
 
   const onSubmit: SubmitHandler<IFormSchema> = async (data) => {
     setFormData(data);
@@ -77,6 +85,7 @@ const DynamicForm = () => {
                   field={field}
                   register={register}
                   errors={errors}
+                  control={control}
                 />
               );
             })}
